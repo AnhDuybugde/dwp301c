@@ -1,0 +1,7 @@
+curl.exe -s https://api.github.com/repos/AnhDuybugde/expressBookReviews | ConvertFrom-Json | Select-Object full_name,html_url,fork,@{Name='parent_full_name';Expression={$_.parent.full_name}},@{Name='parent_html_url';Expression={$_.parent.html_url}}
+
+full_name        : AnhDuybugde/expressBookReviews
+html_url         : https://github.com/AnhDuybugde/expressBookReviews
+fork             : True
+parent_full_name : ibm-developer-skills-network/expressBookReviews
+parent_html_url  : https://github.com/ibm-developer-skills-network/expressBookReviews
