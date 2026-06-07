@@ -1,0 +1,3 @@
+curl -X GET http://127.0.0.1:8000/djangoapp/get_dealers/KS
+
+[{"id":15,"full_name":"Kansas City Best Cars","city":"Kansas City","state":"KS","address":"101 Auto Plaza"},{"id":18,"full_name":"Wichita Family Autos","city":"Wichita","state":"KS","address":"72 Prairie Lane"}]

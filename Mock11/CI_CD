@@ -1,0 +1,12 @@
+Run IBM Cloud Code Engine CI/CD workflow
+
+✓ Checkout repository
+✓ Set up Python 3.11
+✓ Install backend dependencies
+✓ Run Django tests
+✓ Build React frontend
+✓ Build Docker image
+✓ Push image to IBM Cloud Container Registry
+✓ Deploy application to IBM Cloud Code Engine
+
+Workflow completed successfully.

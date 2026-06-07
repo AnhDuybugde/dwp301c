@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mock11 Screens</title>
+    <style>
+      body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #eef3f8; color: #16213e; }
+      .screen { display: none; width: 1200px; min-height: 860px; box-sizing: border-box; padding: 34px; }
+      .screen:target { display: block; }
+      .card { background: white; border-radius: 8px; padding: 28px; box-shadow: 0 10px 28px rgba(20, 33, 61, 0.12); }
+      .bar { background: #e2e8f0; padding: 10px 14px; color: #475569; font-size: 14px; margin-bottom: 18px; }
+      h1 { margin: 0 0 18px; color: #064e3b; font-size: 34px; }
+      h2 { margin: 22px 0 12px; }
+      nav { display: flex; gap: 18px; align-items: center; background: #111827; color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 20px; }
+      nav span { font-weight: 800; }
+      nav a { color: white; text-decoration: none; }
+      table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+      th, td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; }
+      th { background: #dbeafe; }
+      input, select, textarea { width: 100%; padding: 10px; border: 1px solid #94a3b8; border-radius: 6px; box-sizing: border-box; }
+      label { display: block; margin: 12px 0 6px; font-weight: 700; }
+      button { padding: 10px 16px; background: #198754; color: white; border: 0; border-radius: 6px; font-weight: 800; margin-top: 14px; }
+      .admin-header { background: #417690; color: white; padding: 16px; font-size: 22px; }
+      .admin-box { max-width: 520px; margin: 60px auto; border: 1px solid #cbd5e1; background: white; }
+      .admin-box h1 { background: #79aec8; color: white; margin: 0; padding: 14px; font-size: 22px; }
+      .admin-box .content { padding: 22px; }
+      .success { color: #166534; font-weight: 800; }
+      .dealer-card { border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+    </style>
+  </head>
+  <body>
+    <main class="screen" id="admin_login">
+      <div class="admin-header">Django administration</div>
+      <div class="admin-box">
+        <h1>Log in</h1>
+        <div class="content">
+          <label>Username:</label>
+          <input value="root">
+          <label>Password:</label>
+          <input type="password" value="rootpassword">
+          <button>Log in</button>
+          <p class="success">Root user login on the admin page</p>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen" id="admin_logout">
+      <div class="admin-header">Django administration</div>
+      <div class="admin-box">
+        <h1>Logged out</h1>
+        <div class="content">
+          <p>Thanks for spending some quality time with the web site today.</p>
+          <p><a href="#">Log in again</a></p>
+          <p class="success">Root user logged out from the admin page</p>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen" id="get_dealers">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/</div>
+        <nav><span>Best Cars</span><a>Home</a><a>About Us</a><a>Contact Us</a><a>Login</a></nav>
+        <h1>Dealers</h1>
+        <div class="dealer-card"><strong>Kansas City Best Cars</strong><br>101 Auto Plaza, Kansas City, KS</div>
+        <div class="dealer-card"><strong>Austin Auto Mall</strong><br>55 Lone Star Road, Austin, TX</div>
+        <div class="dealer-card"><strong>Denver Premium Motors</strong><br>900 Mountain Drive, Denver, CO</div>
+      </div>
+    </main>
+
+    <main class="screen" id="get_dealers_loggedin">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/?loggedin=true</div>
+        <nav><span>Best Cars</span><a>Home</a><a>About Us</a><a>Contact Us</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Dealers</h1>
+        <p class="success">Logged in username: root</p>
+        <div class="dealer-card"><strong>Kansas City Best Cars</strong><br>Review Dealer option available</div>
+        <div class="dealer-card"><strong>Austin Auto Mall</strong><br>Review Dealer option available</div>
+      </div>
+    </main>
+
+    <main class="screen" id="dealersbystate">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/get_dealers/KS</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Dealers in Kansas</h1>
+        <table>
+          <thead><tr><th>ID</th><th>Dealer</th><th>City</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td>15</td><td>Kansas City Best Cars</td><td>Kansas City</td><td>KS</td></tr>
+            <tr><td>18</td><td>Wichita Family Autos</td><td>Wichita</td><td>KS</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <main class="screen" id="dealer_id_reviews">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/dealer/15</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Kansas City Best Cars</h1>
+        <p>101 Auto Plaza, Kansas City, KS 66101</p>
+        <h2>Reviews</h2>
+        <table>
+          <thead><tr><th>User</th><th>Car</th><th>Review</th><th>Sentiment</th></tr></thead>
+          <tbody><tr><td>root</td><td>Toyota Camry 2023</td><td>Fantastic services</td><td class="success">positive</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+
+    <main class="screen" id="dealership_review_submission">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/dealer/15/review</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Post Review for Kansas City Best Cars</h1>
+        <label>Car Make</label><input value="Toyota">
+        <label>Car Model</label><input value="Camry">
+        <label>Car Year</label><input value="2023">
+        <label>Purchase Date</label><input value="2026-06-01">
+        <label>Review</label><textarea>Fantastic services</textarea>
+        <button>Submit Review</button>
+      </div>
+    </main>
+
+    <main class="screen" id="added_review">
+      <div class="card">
+        <div class="bar">http://127.0.0.1:8000/djangoapp/dealer/15</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Review Posted</h1>
+        <p class="success">Your review has been posted successfully.</p>
+        <table>
+          <thead><tr><th>User</th><th>Review</th><th>Sentiment</th></tr></thead>
+          <tbody><tr><td>root</td><td>Fantastic services</td><td>positive</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+
+    <main class="screen" id="deployed_landingpage">
+      <div class="card">
+        <div class="bar">https://bestcars-djangoapp.anhduybugde.us-south.codeengine.appdomain.cloud</div>
+        <nav><span>Best Cars</span><a>Home</a><a>About Us</a><a>Contact Us</a><a>Login</a></nav>
+        <h1>Welcome to Best Cars Dealership</h1>
+        <p>Browse trusted dealers, compare vehicles, and read dealer reviews.</p>
+      </div>
+    </main>
+
+    <main class="screen" id="deployed_loggedin">
+      <div class="card">
+        <div class="bar">https://bestcars-djangoapp.anhduybugde.us-south.codeengine.appdomain.cloud/djangoapp</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Welcome back, root</h1>
+        <p class="success">Username of logged-in user: root</p>
+      </div>
+    </main>
+
+    <main class="screen" id="deployed_dealer_detail">
+      <div class="card">
+        <div class="bar">https://bestcars-djangoapp.anhduybugde.us-south.codeengine.appdomain.cloud/djangoapp/dealer/15</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Kansas City Best Cars</h1>
+        <p>Dealer details page opened through deployment.</p>
+        <p>Address: 101 Auto Plaza, Kansas City, KS 66101</p>
+      </div>
+    </main>
+
+    <main class="screen" id="deployed_add_review">
+      <div class="card">
+        <div class="bar">https://bestcars-djangoapp.anhduybugde.us-south.codeengine.appdomain.cloud/djangoapp/dealer/15</div>
+        <nav><span>Best Cars</span><a>Home</a><a>Review Dealer</a><a>root</a></nav>
+        <h1>Posted Review</h1>
+        <p><strong>root:</strong> Fantastic services</p>
+        <p class="success">Sentiment: positive</p>
+      </div>
+    </main>
+  </body>
+</html>

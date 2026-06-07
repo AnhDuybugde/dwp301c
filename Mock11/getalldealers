@@ -1,0 +1,3 @@
+curl -X GET http://127.0.0.1:8000/djangoapp/get_dealers
+
+[{"id":15,"full_name":"Kansas City Best Cars","city":"Kansas City","state":"KS","address":"101 Auto Plaza"},{"id":22,"full_name":"Austin Auto Mall","city":"Austin","state":"TX","address":"55 Lone Star Road"},{"id":31,"full_name":"Denver Premium Motors","city":"Denver","state":"CO","address":"900 Mountain Drive"}]
