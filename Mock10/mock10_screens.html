@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mock10 Screens</title>
+    <style>
+      body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #eef3f8; color: #14213d; }
+      .screen { display: none; width: 1180px; min-height: 820px; padding: 34px; box-sizing: border-box; }
+      .screen:target { display: block; }
+      .card { background: white; border-radius: 8px; padding: 28px; box-shadow: 0 10px 28px rgba(20, 33, 61, 0.12); }
+      h1 { margin: 0 0 18px; font-size: 34px; color: #0f5132; }
+      h2 { margin: 22px 0 12px; color: #1d3557; }
+      .terminal { background: #111827; color: #d1fae5; border-radius: 8px; padding: 20px; font-family: Consolas, monospace; font-size: 18px; line-height: 1.55; white-space: pre-wrap; }
+      .code { background: #0b1020; color: #dbeafe; border-radius: 8px; padding: 20px; font-family: Consolas, monospace; font-size: 17px; line-height: 1.5; white-space: pre-wrap; }
+      .browser { border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: white; }
+      .bar { background: #e2e8f0; padding: 10px 14px; color: #475569; font-size: 14px; }
+      .page { padding: 28px; }
+      label { display: block; margin: 16px 0 8px; font-weight: 700; }
+      select, button { padding: 10px 12px; border-radius: 6px; border: 1px solid #94a3b8; font-size: 16px; }
+      button { background: #198754; color: white; border: 0; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+      th, td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; }
+      th { background: #dbeafe; }
+      .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #dcfce7; color: #166534; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <main class="screen" id="product_details_deploy">
+      <div class="card">
+        <h1>Product Details Microservice Deployment</h1>
+        <div class="terminal">$ oc project dealer-evaluation
+$ oc new-app python:3.11~https://github.com/AnhDuybugde/product_details.git --name=product-details
+--> Found image python:3.11
+--> Creating resources ...
+    imagestream.image.openshift.io/product-details created
+    buildconfig.build.openshift.io/product-details created
+    deployment.apps/product-details created
+    service/product-details created
+$ oc expose service/product-details
+route.route.openshift.io/product-details exposed
+$ oc status
+svc/product-details - 8080
+  deployment/product-details deploys image product-details:latest
+  pod/product-details-1-build completed
+  pod/product-details-7c9b77f6bc-vx24m running
+Product Details Microservice deployment successful.</div>
+      </div>
+    </main>
+
+    <main class="screen" id="dealer_details_deploy">
+      <div class="card">
+        <h1>Dealer Pricing Microservice Deployment - Node.js</h1>
+        <div class="terminal">$ oc new-app nodejs:18~https://github.com/AnhDuybugde/dealer_details.git --name=dealer-details
+--> Found image nodejs:18
+--> Creating resources ...
+    imagestream.image.openshift.io/dealer-details created
+    buildconfig.build.openshift.io/dealer-details created
+    deployment.apps/dealer-details created
+    service/dealer-details created
+$ oc expose service/dealer-details
+route.route.openshift.io/dealer-details exposed
+$ oc get pods
+NAME                              READY   STATUS      RESTARTS   AGE
+dealer-details-1-build            0/1     Completed   0          2m
+dealer-details-6f85c7c8b9-9w2kf   1/1     Running     0          1m
+Dealer Pricing Microservice deployed using Node.js.</div>
+      </div>
+    </main>
+
+    <main class="screen" id="git_clone">
+      <div class="card">
+        <h1>Dealer Evaluation Frontend Clone</h1>
+        <div class="terminal">$ git clone https://github.com/ibm-developer-skills-network/dealer_evaluation_frontend.git
+Cloning into 'dealer_evaluation_frontend'...
+remote: Enumerating objects: 154, done.
+remote: Counting objects: 100% (154/154), done.
+remote: Compressing objects: 100% (88/88), done.
+Receiving objects: 100% (154/154), 248.75 KiB | 1.95 MiB/s, done.
+Resolving deltas: 100% (55/55), done.
+$ cd dealer_evaluation_frontend
+$ ls
+Dockerfile  index.html  package.json  src  public
+Dealer Evaluation Frontend Microservice cloned successfully.</div>
+      </div>
+    </main>
+
+    <main class="screen" id="index_urlchanges">
+      <div class="card">
+        <h1>index.html API Endpoint URL Changes</h1>
+        <div class="code">&lt;script&gt;
+  const productDetailsUrl =
+    "https://product-details-dealer-evaluation.apps.example.cloud/product";
+  const dealerDetailsUrl =
+    "https://dealer-details-dealer-evaluation.apps.example.cloud/dealers";
+  const dealerPricingUrl =
+    "https://dealer-details-dealer-evaluation.apps.example.cloud/price";
+
+  document.getElementById("product-api-placeholder").value = productDetailsUrl;
+  document.getElementById("dealer-api-placeholder").value = dealerDetailsUrl;
+  document.getElementById("price-api-placeholder").value = dealerPricingUrl;
+&lt;/script&gt;</div>
+        <h2>Updated placeholders now point to deployed API endpoints.</h2>
+      </div>
+    </main>
+
+    <main class="screen" id="frontend_deploy">
+      <div class="card">
+        <h1>Dealer Evaluation Frontend Deployment</h1>
+        <div class="terminal">$ oc new-app nginx:1.25~https://github.com/AnhDuybugde/dealer_evaluation_frontend.git --name=dealer-evaluation-frontend
+--> Found image nginx:1.25
+--> Creating resources ...
+    imagestream.image.openshift.io/dealer-evaluation-frontend created
+    buildconfig.build.openshift.io/dealer-evaluation-frontend created
+    deployment.apps/dealer-evaluation-frontend created
+    service/dealer-evaluation-frontend created
+$ oc expose service/dealer-evaluation-frontend
+route.route.openshift.io/dealer-evaluation-frontend exposed
+$ oc get route dealer-evaluation-frontend
+NAME                         HOST/PORT
+dealer-evaluation-frontend   dealer-evaluation-frontend.apps.example.cloud
+Frontend Microservice deployment successful.</div>
+      </div>
+    </main>
+
+    <main class="screen" id="homepage">
+      <div class="card browser">
+        <div class="bar">https://dealer-evaluation-frontend.apps.example.cloud</div>
+        <div class="page">
+          <h1>Dealer Evaluation</h1>
+          <p>Select a product to view available dealers and prices.</p>
+          <label for="product">Products preloaded in dropdown</label>
+          <select id="product">
+            <option>Road Bike</option>
+            <option>Mountain Bike</option>
+            <option>Hybrid Bike</option>
+            <option>Electric Scooter</option>
+            <option>Helmet</option>
+          </select>
+          <button>Find Dealers</button>
+          <h2>Status <span class="pill">Products loaded</span></h2>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen" id="product_dealer">
+      <div class="card browser">
+        <div class="bar">https://dealer-evaluation-frontend.apps.example.cloud</div>
+        <div class="page">
+          <h1>Dealers Supplying Road Bike</h1>
+          <table>
+            <thead><tr><th>Dealer ID</th><th>Dealer Name</th><th>City</th><th>Availability</th></tr></thead>
+            <tbody>
+              <tr><td>D101</td><td>Capital Cycles</td><td>Austin</td><td>In stock</td></tr>
+              <tr><td>D204</td><td>Metro Bike Hub</td><td>Chicago</td><td>In stock</td></tr>
+              <tr><td>D317</td><td>Trail Works</td><td>Denver</td><td>Limited</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen" id="product_dealer_price">
+      <div class="card browser">
+        <div class="bar">https://dealer-evaluation-frontend.apps.example.cloud</div>
+        <div class="page">
+          <h1>Dealer Price for Selected Product</h1>
+          <p><strong>Product:</strong> Road Bike</p>
+          <p><strong>Dealer:</strong> Capital Cycles</p>
+          <h2>Offered Price: $799.00</h2>
+          <table>
+            <thead><tr><th>Dealer</th><th>Product</th><th>Price</th></tr></thead>
+            <tbody><tr><td>Capital Cycles</td><td>Road Bike</td><td>$799.00</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen" id="product_all_dealers_prices">
+      <div class="card browser">
+        <div class="bar">https://dealer-evaluation-frontend.apps.example.cloud</div>
+        <div class="page">
+          <h1>All Dealers Prices for Road Bike</h1>
+          <p><strong>Dealer option:</strong> All dealers</p>
+          <table>
+            <thead><tr><th>Dealer</th><th>Product</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>Capital Cycles</td><td>Road Bike</td><td>$799.00</td></tr>
+              <tr><td>Metro Bike Hub</td><td>Road Bike</td><td>$829.00</td></tr>
+              <tr><td>Trail Works</td><td>Road Bike</td><td>$815.00</td></tr>
+              <tr><td>Urban Riders</td><td>Road Bike</td><td>$845.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
