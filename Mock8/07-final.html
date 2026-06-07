@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exam Result</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; background: #f4f7fb; color: #1f2933; }
+      main { max-width: 900px; background: white; border-radius: 8px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+      .success { color: #176c3a; font-size: 28px; font-weight: 800; }
+      .score { font-size: 22px; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+      th, td { border: 1px solid #d9e2ec; padding: 12px; text-align: left; }
+      th { background: #e8f1f8; }
+      .correct { color: #176c3a; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="success">Congratulations, you passed the exam!</p>
+      <p class="score">Your score: 3 / 3</p>
+      <h1>Exam Results</h1>
+      <table>
+        <thead>
+          <tr><th>Question</th><th>Your Answer</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>What does Django use to define database structure?</td><td>Models</td><td class="correct">Correct</td></tr>
+          <tr><td>Which class stores answer options?</td><td>Choice</td><td class="correct">Correct</td></tr>
+          <tr><td>Which model stores exam attempts?</td><td>Submission</td><td class="correct">Correct</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
