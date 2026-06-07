@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #ffffff;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(18, 58, 43, 0.62), rgba(18, 58, 43, 0.62)),
+    url("https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1600&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-content {
+  max-width: 760px;
+}
+
+.company-name {
+  margin: 0 0 18px;
+  font-size: 64px;
+  font-weight: 800;
+}
+
+.company-tagline {
+  margin: 0 0 30px;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.get-started-button {
+  border: 0;
+  border-radius: 6px;
+  padding: 14px 28px;
+  background: #f2c94c;
+  color: #123a2b;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.get-started-button:hover {
+  background: #ffffff;
+}
