@@ -1,7 +1,7 @@
-curl.exe -s https://api.github.com/repos/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub | ConvertFrom-Json | Select-Object full_name,html_url,fork,@{Name='parent_full_name';Expression={$_.parent.full_name}},@{Name='parent_html_url';Expression={$_.parent.html_url}}
+curl.exe -s https://api.github.com/repos/AnhDuybugde/github-final-project | ConvertFrom-Json | Select-Object full_name,html_url,fork,@{Name='parent_full_name';Expression={$_.parent.full_name}},@{Name='parent_html_url';Expression={$_.parent.html_url}}
 
-full_name        : AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
-html_url         : https://github.com/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
+full_name        : AnhDuybugde/github-final-project
+html_url         : https://github.com/AnhDuybugde/github-final-project
 fork             : True
 parent_full_name : ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub
 parent_html_url  : https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub

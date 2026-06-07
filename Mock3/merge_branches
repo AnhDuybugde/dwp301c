@@ -5,7 +5,7 @@ Switched to branch 'main'
 
 git merge bug-fix-typo
 
-Updating ad95b0a..8f47ea3
+Updating a6ae7be..2bb1e9d
 Fast-forward
- simple-interest.sh | 2 +-
+ README.md | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

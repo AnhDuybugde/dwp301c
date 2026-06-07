@@ -1,9 +1,9 @@
-curl.exe -s https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls/8319 | ConvertFrom-Json | Select-Object html_url,state,title,@{Name='head_ref';Expression={$_.head.ref}},@{Name='head_repo';Expression={$_.head.repo.full_name}},@{Name='head_repo_fork';Expression={$_.head.repo.fork}},@{Name='base_repo';Expression={$_.base.repo.full_name}}
+curl.exe -s https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls/8320 | ConvertFrom-Json | Select-Object html_url,state,title,@{Name='head_ref';Expression={$_.head.ref}},@{Name='head_repo';Expression={$_.head.repo.full_name}},@{Name='head_repo_fork';Expression={$_.head.repo.fork}},@{Name='base_repo';Expression={$_.base.repo.full_name}}
 
-html_url       : https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pull/8319
+html_url       : https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pull/8320
 state          : closed
-title          : Update contribution guidance
+title          : Update contribution summary guidance
 head_ref       : bug-fix-revert
-head_repo      : AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
+head_repo      : AnhDuybugde/github-final-project
 head_repo_fork : True
 base_repo      : ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub
