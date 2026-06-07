@@ -1,0 +1,7 @@
+python -m unittest test_emotion_detection.py
+
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.065s
+
+OK
