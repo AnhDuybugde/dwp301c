@@ -1,0 +1,12 @@
+Run this command inside your cloned repository:
+
+git branch -a
+
+Paste the terminal output here. It should display branch names and their status, for example:
+
+* main
+  bug-fix-typo
+  bug-fix-revert
+  remotes/origin/main
+  remotes/origin/bug-fix-typo
+  remotes/origin/bug-fix-revert

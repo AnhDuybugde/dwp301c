@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Profile illustration</title>
+  <desc id="desc">A simple custom profile portrait with Nguyen Van A initials.</desc>
+  <rect width="160" height="160" fill="#204e4a"/>
+  <circle cx="80" cy="58" r="30" fill="#f4d06f"/>
+  <path d="M36 146c5-35 23-55 44-55s39 20 44 55z" fill="#f4d06f"/>
+  <path d="M52 58c7-24 29-37 54-22 9 6 15 17 16 30-19-7-39-13-70-8z" fill="#1f2933"/>
+  <circle cx="68" cy="62" r="4" fill="#1f2933"/>
+  <circle cx="92" cy="62" r="4" fill="#1f2933"/>
+  <path d="M68 77c9 8 17 8 26 0" fill="none" stroke="#1f2933" stroke-width="5" stroke-linecap="round"/>
+  <text x="80" y="136" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#204e4a">NA</text>
+</svg>
