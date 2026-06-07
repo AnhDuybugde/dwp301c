@@ -1,9 +1,11 @@
 git branch -a -vv
 
-* bug-fix-revert                df9770b [origin/bug-fix-revert] Revert "Fix typo in simple interest script"
+* bug-fix-revert                25164ed [origin/bug-fix-revert] Update contribution guidance
   bug-fix-typo                  8f47ea3 [origin/bug-fix-typo] Fix typo in simple interest script
-  main                          8f47ea3 [origin/main] Fix typo in simple interest script
+  main                          5a78931 [origin/main] Update simple interest project files
   remotes/origin/HEAD           -> origin/main
-  remotes/origin/bug-fix-revert df9770b Revert "Fix typo in simple interest script"
+  remotes/origin/bug-fix-revert 25164ed Update contribution guidance
   remotes/origin/bug-fix-typo   8f47ea3 Fix typo in simple interest script
-  remotes/origin/main           8f47ea3 Fix typo in simple interest script
+  remotes/origin/main           5a78931 Update simple interest project files
+  remotes/upstream/HEAD         -> upstream/main
+  remotes/upstream/main         ad95b0a Create close_pr.yml
