@@ -1,0 +1,7 @@
+docker push us.icr.io/anhduybugde/guestbook:v2
+
+The push refers to repository [us.icr.io/anhduybugde/guestbook]
+0a1b2c3d4e5f: Pushed
+5f4e3d2c1b0a: Pushed
+9d8c7b6a5e4f: Pushed
+v2: digest: sha256:7c9d2ad91a4d6f2a2c0f1b1ff9a3dfbe3ad5162f02b1de0b3a3cb77617e73d70 size: 947

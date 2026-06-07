@@ -1,0 +1,9 @@
+kubectl get hpa
+
+NAME        REFERENCE              TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+guestbook   Deployment/guestbook   182%/50%   1         10        4          9m18s
+
+kubectl get deployment guestbook
+
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook   4/4     4            4           9m18s

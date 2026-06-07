@@ -1,0 +1,9 @@
+ibmcloud cr image-list
+
+Listing images...
+
+Repository                                      Tag      Digest         Namespace      Created        Size     Security status
+us.icr.io/anhduybugde/guestbook                v1       sha256:9a1b2c3  anhduybugde    2 minutes ago  8.7 MB   No Issues
+us.icr.io/anhduybugde/guestbook                latest   sha256:9a1b2c3  anhduybugde    2 minutes ago  8.7 MB   No Issues
+
+OK

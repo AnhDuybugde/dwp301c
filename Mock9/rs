@@ -1,0 +1,15 @@
+kubectl get rs
+
+NAME                   DESIRED   CURRENT   READY   AGE
+guestbook-7fd5b6c8d9   1         1         1       18m
+guestbook-646f98bd79   0         0         0       9m
+
+kubectl rollout undo deployment/guestbook
+
+deployment.apps/guestbook rolled back
+
+kubectl get rs
+
+NAME                   DESIRED   CURRENT   READY   AGE
+guestbook-7fd5b6c8d9   1         1         1       20m
+guestbook-646f98bd79   0         0         0       11m

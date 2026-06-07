@@ -1,0 +1,7 @@
+kubectl apply -f deployment.yml
+
+deployment.apps/guestbook configured
+
+kubectl rollout status deployment/guestbook
+
+deployment "guestbook" successfully rolled out

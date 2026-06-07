@@ -1,0 +1,21 @@
+kubectl rollout history deployment/guestbook
+
+deployment.apps/guestbook
+REVISION  CHANGE-CAUSE
+1         <none>
+2         kubectl set resources deployment guestbook --limits=cpu=50m --requests=cpu=20m
+3         kubectl set image deployment/guestbook guestbook=us.icr.io/anhduybugde/guestbook:v2
+
+kubectl rollout history deployment/guestbook --revision=2
+
+deployment.apps/guestbook with revision #2
+Pod Template:
+  Labels:       app=guestbook
+        pod-template-hash=7fd5b6c8d9
+  Containers:
+   guestbook:
+    Image:      us.icr.io/anhduybugde/guestbook:v1
+    Limits:
+      cpu:      50m
+    Requests:
+      cpu:      20m
