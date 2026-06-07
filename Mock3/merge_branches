@@ -1,13 +1,11 @@
-Run these commands inside your cloned repository after creating the bug-fix-typo branch:
-
 git checkout main
+
+Your branch is up to date with 'origin/main'.
+Switched to branch 'main'
+
 git merge bug-fix-typo
 
-The terminal output you paste here must clearly indicate that 1 file changed.
-Example shape:
-
-Switched to branch 'main'
-Updating xxxxxxx..yyyyyyy
+Updating ad95b0a..8f47ea3
 Fast-forward
- README.md | 2 +-
+ simple-interest.sh | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

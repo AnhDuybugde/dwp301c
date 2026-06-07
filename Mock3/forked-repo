@@ -1,8 +1,7 @@
-Replace YOUR_USERNAME with your GitHub username, then run this after your fork is public:
+curl.exe -s https://api.github.com/repos/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub | ConvertFrom-Json | Select-Object full_name,html_url,fork,@{Name='parent_full_name';Expression={$_.parent.full_name}},@{Name='parent_html_url';Expression={$_.parent.html_url}}
 
-curl -s https://api.github.com/repos/YOUR_USERNAME/mcino-Introduction-to-Git-and-GitHub | grep -E '"full_name"|"fork"|"html_url"|"parent"'
-
-Expected output should show:
-- "fork": true
-- your repository URL
-- parent repository: ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub
+full_name        : AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
+html_url         : https://github.com/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
+fork             : True
+parent_full_name : ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub
+parent_html_url  : https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub

@@ -1,5 +1,8 @@
-Replace YOUR_USERNAME and PR_NUMBER, then run this after creating the pull request:
+curl.exe -s https://api.github.com/repos/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub/pulls/1 | ConvertFrom-Json | Select-Object html_url,state,title,@{Name='head_ref';Expression={$_.head.ref}},@{Name='head_repo';Expression={$_.head.repo.full_name}},@{Name='head_repo_fork';Expression={$_.head.repo.fork}}
 
-curl -s https://api.github.com/repos/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub/pulls/PR_NUMBER | grep -E '"html_url"|"state"|"title"|"user"|"head"|"repo"|"full_name"'
-
-Expected output should verify the pull request and show that the head repository is your fork.
+html_url       : https://github.com/AnhDuybugde/mcino-Introduction-to-Git-and-GitHub/pull/1
+state          : open
+title          : Revert typo fix
+head_ref       : bug-fix-revert
+head_repo      : AnhDuybugde/mcino-Introduction-to-Git-and-GitHub
+head_repo_fork : True
