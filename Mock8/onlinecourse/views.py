@@ -3,7 +3,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Choice, Course, Submission
+from .models import Choice, Course, Enrollment, Question, Submission
 
 
 @login_required
@@ -19,10 +19,13 @@ def submit(request, course_id):
         if key.startswith("choice_"):
             selected_choice_ids.extend(values)
 
-    selected_choices = Choice.objects.filter(id__in=selected_choice_ids)
-    submission = Submission.objects.create(
+    enrollment, _created = Enrollment.objects.get_or_create(
         user=request.user,
         course=course,
+    )
+    selected_choices = Choice.objects.filter(id__in=selected_choice_ids)
+    submission = Submission.objects.create(
+        enrollment=enrollment,
     )
     submission.choices.set(selected_choices)
     submission.save()
@@ -38,29 +41,41 @@ def submit(request, course_id):
 def show_exam_result(request, course_id, submission_id):
     """Display exam score, result message, and selected answers."""
     course = get_object_or_404(Course, pk=course_id)
+    enrollment = get_object_or_404(
+        Enrollment,
+        user=request.user,
+        course=course,
+    )
     submission = get_object_or_404(
         Submission,
         pk=submission_id,
-        course=course,
-        user=request.user,
+        enrollment=enrollment,
     )
 
-    selected_choices = submission.choices.all()
-    total_grade = 0
-    correct_choices = []
+    selected_ids = list(submission.choices.values_list("id", flat=True))
+    questions = Question.objects.filter(course=course)
+    selected_question_map = {
+        choice.id: choice.question_id
+        for choice in submission.choices.select_related("question")
+    }
+    total_score = 0
+    possible_score = 0
 
-    for choice in selected_choices:
-        if choice.is_correct:
-            total_grade += choice.question.grade
-            correct_choices.append(choice)
+    for question in questions:
+        selected_for_question = [
+            choice_id
+            for choice_id in selected_ids
+            if selected_question_map.get(choice_id) == question.id
+        ]
+        total_score += question.is_get_score(selected_for_question)
+        possible_score += question.grade
 
-    passed = total_grade >= 1
+    passed = total_score >= max(1, possible_score // 2)
     context = {
         "course": course,
-        "submission": submission,
-        "selected_choices": selected_choices,
-        "correct_choices": correct_choices,
-        "grade": total_grade,
+        "selected_ids": selected_ids,
+        "grade": total_score,
+        "possible": possible_score,
         "passed": passed,
     }
 

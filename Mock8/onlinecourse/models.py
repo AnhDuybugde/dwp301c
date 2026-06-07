@@ -26,6 +26,28 @@ class Lesson(models.Model):
         return self.title
 
 
+class Instructor(models.Model):
+    """Instructor profile for the OnlineCourse application."""
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    full_time = models.BooleanField(default=True)
+    total_learners = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.user)
+
+
+class Learner(models.Model):
+    """Learner profile for the OnlineCourse application."""
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    occupation = models.CharField(max_length=200)
+    social_link = models.URLField(max_length=200)
+
+    def __str__(self):
+        return str(self.user)
+
+
 class Question(models.Model):
     """Exam question model."""
 
@@ -41,6 +63,15 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+
+    def is_get_score(self, selected_ids):
+        """Return this question's grade when all selected answers are correct."""
+        all_answers = self.choice_set.all()
+        correct_ids = set(
+            all_answers.filter(is_correct=True).values_list("id", flat=True)
+        )
+        selected_ids = set(int(choice_id) for choice_id in selected_ids)
+        return self.grade if correct_ids == selected_ids else 0
 
 
 class Choice(models.Model):
@@ -63,18 +94,11 @@ class Submission(models.Model):
         null=True,
         blank=True,
     )
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-    )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Submission for {self.course}"
+        return f"Submission for {self.enrollment}"
 
 
 class Enrollment(models.Model):

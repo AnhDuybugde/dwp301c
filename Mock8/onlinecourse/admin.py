@@ -1,9 +1,16 @@
 """Admin configuration for the OnlineCourse application."""
 
 from django.contrib import admin
-from django.contrib.auth.models import User
-
-from .models import Choice, Course, Enrollment, Lesson, Question, Submission
+from .models import (
+    Choice,
+    Course,
+    Enrollment,
+    Instructor,
+    Learner,
+    Lesson,
+    Question,
+    Submission,
+)
 
 
 class QuestionInline(admin.StackedInline):
@@ -48,3 +55,5 @@ admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
 admin.site.register(Submission)
 admin.site.register(Enrollment)
+admin.site.register(Instructor)
+admin.site.register(Learner)
